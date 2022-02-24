@@ -16,17 +16,23 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String themeColor;
+    Button btSmartCampus, btEverytime, btColor, button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findId();
+
+
         themeColor = ThemeUtil.modLoad(getApplicationContext());
         ThemeUtil.applyTheme(themeColor);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        findId();
+
     }
 
     public boolean getPackageList(String adrass) {
@@ -81,5 +87,11 @@ public class MainActivity extends AppCompatActivity {
     public void btcolor(View view) {
         Intent intent = new Intent(getApplicationContext(),ModDialog.class);
         startActivity(intent);
+    }
+
+    public void findId() {
+        btSmartCampus = findViewById(R.id.bt_SmartCampus);
+        btEverytime = findViewById(R.id.bt_Everytime);
+        btColor = findViewById(R.id.bt_color);
     }
 }
