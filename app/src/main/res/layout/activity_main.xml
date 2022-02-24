@@ -1,18 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_weight="2"
+        android:accessibilityLiveRegion="polite"
+        android:background="#0394cd"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:paddingStart="20px"
+            android:paddingTop="5px"
+            android:shadowColor="#000000"
+            android:text="Daelim FAQ"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_SmartCampus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btSmartCampus"
+            android:text="스마트 캠퍼스" />
+
+        <Button
+            android:id="@+id/bt_Everytime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btEverytime"
+            android:text="에브리타임" />
+
+        <Button
+            android:id="@+id/bt_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="btcolor"
+            android:text="다크" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="건의" />
+    </LinearLayout>
+
+</LinearLayout>
