@@ -10,14 +10,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     String themeColor;
-    Button btSmartCampus, btEverytime, btColor, button4;
-
+    ImageView imvSmartCampus,imvEverytime, imvColor, imvInquiry,imvPush;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         return isExist;
     }
 
-    public void btSmartCampus(View view) {
+    public void imvSmartCampus(View view) {
         boolean site = getPackageList("kr.ac.dlu.atdc");
         if (site == true){
             Intent intent = getPackageManager().getLaunchIntentForPackage("kr.ac.dlu.atdc");
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void btEverytime(View view) {
+    public void imvEverytime(View view) {
         boolean site = getPackageList("com.everytime.v2");
         if (site == true){
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.everytime.v2");
@@ -84,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void btcolor(View view) {
+    public void imvColor(View view) {
         Intent intent = new Intent(getApplicationContext(),ModDialog.class);
         startActivity(intent);
     }
 
     public void findId() {
-        btSmartCampus = findViewById(R.id.bt_SmartCampus);
-        btEverytime = findViewById(R.id.bt_Everytime);
-        btColor = findViewById(R.id.bt_color);
+        imvSmartCampus = findViewById(R.id.imvSmartcampu);
+        imvEverytime = findViewById(R.id.imvEveverytime);
+        imvColor = findViewById(R.id.imvNight);
     }
 }

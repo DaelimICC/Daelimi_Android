@@ -15,14 +15,14 @@
         tools:layout_editor_absoluteY="315dp">
 
         <RadioButton
-            android:id="@+id/rb_light"
+            android:id="@+id/rbLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="rblight"
             android:text="라이트 모드" />
 
         <RadioButton
-            android:id="@+id/rb_dark"
+            android:id="@+id/rbDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="rbdark"

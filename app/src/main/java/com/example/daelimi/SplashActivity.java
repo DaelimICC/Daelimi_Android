@@ -12,7 +12,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        moveMain(1);	//1초 후 main activity 로 넘어감
+        moveMain(2);	//2초 후 main activity 로 넘어감
     }
 
     private void moveMain(int sec) {

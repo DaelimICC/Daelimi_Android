@@ -15,9 +15,6 @@ public class ModDialog extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_mod_dialog);
     }
-    public void btclose(View view) {
-        finish();
-    }
 
     public void rblight(View view) {
         themColor =ThemeUtil.LIGHT_MODE;

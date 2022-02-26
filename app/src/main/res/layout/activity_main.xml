@@ -5,26 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_weight="2"
-        android:accessibilityLiveRegion="polite"
-        android:background="#0394cd"
-
-
-        android:orientation="horizontal"
-        android:visibility="visible">
+        android:layout_height="44dp"
+        android:background="#8E8E8E"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_Title"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
             android:layout_weight="1"
-            android:paddingStart="20px"
-            android:paddingTop="5px"
+            android:gravity="center"
             android:shadowColor="#000000"
             android:text="Daelim FAQ"
             android:textColor="#FFFFFF"
@@ -33,43 +27,88 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvChats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/llMessage">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/llMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <EditText
+                android:id="@+id/edtMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:hint="질문을 입력하세요" />
+
+            <ImageView
+                android:id="@+id/imvPush"
+                android:layout_width="13dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/push" />
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="bottom"
+        android:layout_height="33dp"
+        android:layout_marginBottom="10px"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/bt_SmartCampus"
+        <ImageView
+            android:id="@+id/imvSmartcampu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="btSmartCampus"
-            android:text="스마트 캠퍼스" />
+            android:onClick="imvSmartCampus"
+            app:srcCompat="@mipmap/smartcampu" />
 
-        <Button
-            android:id="@+id/bt_Everytime"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imvEveverytime"
+            android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="btEverytime"
-            android:text="에브리타임" />
+            android:onClick="imvEverytime"
+            app:srcCompat="@mipmap/everytime" />
 
-        <Button
-            android:id="@+id/bt_color"
+        <ImageView
+            android:id="@+id/imvNight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="btcolor"
-            android:text="다크" />
+            android:onClick="imvColor"
+            app:srcCompat="@mipmap/night" />
 
-        <Button
-            android:id="@+id/button4"
+        <ImageView
+            android:id="@+id/imvInquiry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="건의" />
+            app:srcCompat="@mipmap/inquiry" />
     </LinearLayout>
 
 </LinearLayout>
