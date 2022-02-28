@@ -68,7 +68,7 @@ public class SmartCampusFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_smart_campus, container, false);
         ivGif = viewGroup.findViewById(R.id.ivGif);
-        Glide.with(this).load(R.raw.test).into(ivGif);
+        Glide.with(this).load(R.raw.gifsmart).into(ivGif);
 
         /*Intent intent;
         try{
