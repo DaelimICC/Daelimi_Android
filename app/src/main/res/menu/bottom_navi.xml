@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuDaelimi"
+        android:icon="@drawable/chat"
+        android:title="FAQ봇"/>
+
+    <item
+        android:id="@+id/menuSmartcapus"
+        android:icon="@drawable/smartcampus"
+        android:title="스마트캠퍼스" />
+
+    <item
+        android:id="@+id/menuEverytime"
+        android:icon="@drawable/everytime"
+        android:title="에브리타임"/>
+
+    <item
+        android:id="@+id/menuNight"
+        android:icon="@drawable/night"
+        android:title="나이트모드"/>
+
+    <item
+        android:id="@+id/menuInquiry"
+        android:icon="@drawable/inquiry"
+        android:title="문의사이트" />
+</menu>
