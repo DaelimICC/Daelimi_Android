@@ -41,7 +41,7 @@ public class ChatFragment extends Fragment {
     MessageRVAdapter messageRVAdapter;
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://asia-northeast1-root-station-341716.cloudfunctions.net/")
+            .baseUrl("http://141.164.61.172:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
@@ -101,6 +101,14 @@ public class ChatFragment extends Fragment {
 
         messageModalArrayList = new ArrayList<>();
 
+        messageRVAdapter = new MessageRVAdapter(messageModalArrayList, getContext());
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        rvChats.setLayoutManager(linearLayoutManager);
+        rvChats.setAdapter(messageRVAdapter);
+
+        setBotMessage("안녕하세요! 대림이 입니다.");
+
         try {
             fabSend.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,14 +123,11 @@ public class ChatFragment extends Fragment {
 
                     edtMessage.setText("");
 
+                    fabSend.setClickable(false);
                 }
             });
 
-            messageRVAdapter = new MessageRVAdapter(messageModalArrayList, getContext());
 
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-            rvChats.setLayoutManager(linearLayoutManager);
-            rvChats.setAdapter(messageRVAdapter);
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -133,7 +138,7 @@ public class ChatFragment extends Fragment {
         messageModalArrayList.add(new MessageModal(userMessage, USER_KEY));
         messageRVAdapter.notifyDataSetChanged();
 
-        call = service.getResponse(new Request("1", userMessage));
+        call = service.getResponse(new Request(0, userMessage));
         /*if(){
             call = service.getResponse(new Request("1", userMessage));
         }else{
@@ -146,22 +151,25 @@ public class ChatFragment extends Fragment {
                 if(response.isSuccessful()){
                     ResponseAnswer result = response.body();
                     String responseMessage = result.toString();
-                    messageModalArrayList.add(new MessageModal(responseMessage, BOT_KEY));
-                    messageRVAdapter.notifyDataSetChanged();
-                    rvChats.smoothScrollToPosition(messageModalArrayList.size());
+                    setBotMessage(responseMessage);
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseAnswer> call, Throwable t) {
-                messageModalArrayList.add(new MessageModal("서버 연결에 오류가 생겼습니다.", BOT_KEY));
-                messageRVAdapter.notifyDataSetChanged();
-                rvChats.smoothScrollToPosition(messageModalArrayList.size());
+                setBotMessage("서버연결에 문제가 생겼습니다.");
             }
 
         });
 
 
+    }
+
+    private void setBotMessage(String botMessage){
+        messageModalArrayList.add(new MessageModal(botMessage, BOT_KEY));
+        messageRVAdapter.notifyDataSetChanged();
+        rvChats.smoothScrollToPosition(messageModalArrayList.size());
+        fabSend.setClickable(true);
     }
 }
 

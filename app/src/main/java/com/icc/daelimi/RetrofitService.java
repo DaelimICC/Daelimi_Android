@@ -5,6 +5,6 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface RetrofitService {
-    @POST("function-1/")
+    @POST("api/")
     Call<ResponseAnswer> getResponse(@Body Request request);
 }

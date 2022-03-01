@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Daelimi"
 include ':app'
-include ':cahtbotcore'

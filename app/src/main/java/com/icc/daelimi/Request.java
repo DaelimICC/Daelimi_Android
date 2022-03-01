@@ -4,12 +4,12 @@ import com.google.gson.annotations.SerializedName;
 
 public class Request {
     @SerializedName("isFilter")
-    private String isFilter;
+    private int isFilter;
 
     @SerializedName("message")
     private String message;
 
-    public Request(String isFilter, String message) {
+    public Request(int isFilter, String message) {
         this.isFilter = isFilter;
         this.message = message;
     }

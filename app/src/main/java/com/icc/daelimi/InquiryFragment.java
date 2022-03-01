@@ -81,7 +81,7 @@ public class InquiryFragment extends Fragment {
         wvView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         wvView.getSettings().setSupportMultipleWindows(true);
 
-        wvView.loadUrl("httpS://m.naver.com");
+        wvView.loadUrl("http://141.164.61.172:8000/issue");
 
         return viewGroup;
 

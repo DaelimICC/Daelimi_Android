@@ -88,7 +88,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
 
         public UserViewHolder(@NonNull View view) {
             super(view);
-            tvUser = view.findViewById(R.id.tvUser);
+            //tvUser = view.findViewById(R.id.tvUser);
         }
     }
 
@@ -97,7 +97,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
 
         public BotViewHolder(@NonNull View view) {
             super(view);
-            tvBot = view.findViewById(R.id.tvBot);
+            //tvBot = view.findViewById(R.id.tvBot);
         }
     }
 }
