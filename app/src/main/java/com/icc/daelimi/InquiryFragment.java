@@ -17,7 +17,6 @@ import android.webkit.WebViewClient;
  * create an instance of this fragment.
  */
 public class InquiryFragment extends Fragment {
-    WebView wvView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,6 +57,8 @@ public class InquiryFragment extends Fragment {
         }
     }
 
+    WebView wvView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -75,11 +76,6 @@ public class InquiryFragment extends Fragment {
 
         //WebView 줌 설정 여부
         wvView.getSettings().setSupportZoom(true);
-
-        //WebView 자바스크립트 사용여부
-        wvView.getSettings().setJavaScriptEnabled(true);
-        wvView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        wvView.getSettings().setSupportMultipleWindows(true);
 
         wvView.loadUrl("http://141.164.61.172:8000/issue");
 

@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
  * create an instance of this fragment.
  */
 public class EveryTimeFragment extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,8 +27,6 @@ public class EveryTimeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    ImageView ivGif;
 
     public EveryTimeFragment() {
         // Required empty public constructor
@@ -62,6 +59,8 @@ public class EveryTimeFragment extends Fragment {
         }
     }
 
+    ImageView ivGif;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,7 +78,6 @@ public class EveryTimeFragment extends Fragment {
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.everytime.v2"));
             startActivity(intent);
         }
-//        return inflater.inflate(R.layout.fragment_every_time, container, false);
 
         return viewGroup;
     }

@@ -28,9 +28,6 @@ public class SmartCampusFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-    ImageView ivGif;
-
     public SmartCampusFragment() {
         // Required empty public constructor
     }
@@ -62,6 +59,8 @@ public class SmartCampusFragment extends Fragment {
         }
     }
 
+    ImageView ivGif;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,6 +77,7 @@ public class SmartCampusFragment extends Fragment {
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=kr.ac.dlu.atdc"));
             startActivity(intent);
         }
+
         return viewGroup;
     }
 }

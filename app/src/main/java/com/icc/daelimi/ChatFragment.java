@@ -30,24 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * create an instance of this fragment.
  */
 public class ChatFragment extends Fragment {
-    RecyclerView rvChats;
-    EditText edtMessage;
-    FloatingActionButton fabSend;
-
-    final String USER_KEY = "user";
-    final String BOT_KEY = "bot";
-
-    ArrayList<MessageModal> messageModalArrayList;
-    MessageRVAdapter messageRVAdapter;
-
-    Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://141.164.61.172:8000/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
-    RetrofitService service = retrofit.create(RetrofitService.class);
-    Call<ResponseAnswer> call;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -88,9 +70,32 @@ public class ChatFragment extends Fragment {
         }
     }
 
+    RecyclerView rvChats;
+    EditText edtMessage;
+    FloatingActionButton fabSend;
+
+    final String USER_KEY = "user";
+    final String BOT_KEY = "bot";
+
+    ArrayList<MessageModal> messageModalArrayList;
+    MessageRVAdapter messageRVAdapter;
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("http://141.164.61.172:8000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+
+    RetrofitService service = retrofit.create(RetrofitService.class);
+    Call<ResponseAnswer> call;
+
+    Filter filter;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        filter = new Filter();
 
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_chat, container, false);
 
@@ -138,12 +143,7 @@ public class ChatFragment extends Fragment {
         messageModalArrayList.add(new MessageModal(userMessage, USER_KEY));
         messageRVAdapter.notifyDataSetChanged();
 
-        call = service.getResponse(new Request(0, userMessage));
-        /*if(){
-            call = service.getResponse(new Request("1", userMessage));
-        }else{
-            call = service.getResponse(new Request("0", userMessage));
-        }*/
+        call = service.getResponse(filter.sendMessage(userMessage));
 
         call.enqueue(new Callback<ResponseAnswer>() {
             @Override
@@ -159,10 +159,7 @@ public class ChatFragment extends Fragment {
             public void onFailure(Call<ResponseAnswer> call, Throwable t) {
                 setBotMessage("서버연결에 문제가 생겼습니다.");
             }
-
         });
-
-
     }
 
     private void setBotMessage(String botMessage){
