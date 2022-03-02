@@ -15,10 +15,10 @@
         android:icon="@drawable/everytime"
         android:title="에브리타임"/>
 
-    <item
-        android:id="@+id/menuNight"
-        android:icon="@drawable/night"
-        android:title="나이트모드"/>
+<!--    <item-->
+<!--        android:id="@+id/menuNight"-->
+<!--        android:icon="@drawable/night"-->
+<!--        android:title="나이트모드"/>-->
 
     <item
         android:id="@+id/menuInquiry"

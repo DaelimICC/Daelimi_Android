@@ -3,4 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EveryTimeFragment"/>
+    tools:context=".SmartCampusFragment">
+
+    <ImageView
+        android:id="@+id/ivGif"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/inquiry" />
+
+</FrameLayout>

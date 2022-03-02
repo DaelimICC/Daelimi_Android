@@ -70,14 +70,14 @@ public class SmartCampusFragment extends Fragment {
         ivGif = viewGroup.findViewById(R.id.ivGif);
         Glide.with(this).load(R.raw.gifsmart).into(ivGif);
 
-        /*Intent intent;
+        Intent intent;
         try{
             intent = getActivity().getPackageManager().getLaunchIntentForPackage("kr.ac.dlu.atdc");
             startActivity(intent);
         }catch (Exception e){
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=kr.ac.dlu.atdc"));
             startActivity(intent);
-        }*/
+        }
         return viewGroup;
     }
 }

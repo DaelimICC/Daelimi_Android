@@ -11,8 +11,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Daelimi">
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
