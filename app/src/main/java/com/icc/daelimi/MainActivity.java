@@ -1,6 +1,7 @@
 package com.icc.daelimi;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     SmartCampusFragment smartCampusFragment;
     EveryTimeFragment everyTimeFragment;
     InquiryFragment inquiryFragment;
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         inquiryFragment = new InquiryFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flyFrame, chatFragment).commit();
+
+        showAlertDialog();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -57,5 +59,16 @@ public class MainActivity extends AppCompatActivity {
               return true;
             }
         });
+
     }
+
+    public void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("안내");
+        builder.setMessage("강의실 검색시 강의실명이 아닌 강의실 코드로 검색해주세요.\n"+
+                "예) 전산관 프로그래밍1실 -> J0225");
+        builder.setPositiveButton("알겠습니다", null);
+        builder.create().show();
+    }
+
 }

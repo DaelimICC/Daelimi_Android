@@ -114,28 +114,23 @@ public class ChatFragment extends Fragment {
 
         setBotMessage("안녕하세요! 대림이 입니다.");
 
-        try {
-            fabSend.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    String userMessage = edtMessage.getText().toString();
-                    if (userMessage.isEmpty()) {
-                        Toast.makeText(getContext(), "질문을 입력하세요", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-                    sendMessage(userMessage);
-
-                    edtMessage.setText("");
-
-                    fabSend.setClickable(false);
+        fabSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userMessage = edtMessage.getText().toString();
+                if (userMessage.isEmpty()) {
+                    Toast.makeText(getContext(), "질문을 입력하세요", Toast.LENGTH_LONG).show();
+                    return;
                 }
-            });
 
+                sendMessage(userMessage);
 
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+                edtMessage.setText("");
+
+                fabSend.setClickable(false);
+            }
+        });
+
         return viewGroup;
     }
 
