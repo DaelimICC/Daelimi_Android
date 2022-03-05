@@ -22,11 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
-        bottomNavigationView = findViewById(R.id.bnvNavi);
-=======
         initView();
->>>>>>> 0280fd1abd8bf6c1aab3823448c32626063df3f1
+
 
         chatFragment = new ChatFragment();
         smartCampusFragment = new SmartCampusFragment();
