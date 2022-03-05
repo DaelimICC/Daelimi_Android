@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = findViewById(R.id.bnvNavi);
+        initView();
+
         chatFragment = new ChatFragment();
         smartCampusFragment = new SmartCampusFragment();
         everyTimeFragment = new EveryTimeFragment();
@@ -69,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                 "예) 전산관 프로그래밍1실 -> J0225");
         builder.setPositiveButton("알겠습니다", null);
         builder.create().show();
+    }
+
+    public void initView() {
+        bottomNavigationView = findViewById(R.id.bnvNavi);
     }
 
 }

@@ -65,7 +65,7 @@ public class InquiryFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_inquiry, container, false);
 
-        wvView = viewGroup.findViewById(R.id.wvView);
+        initView(viewGroup);
 
         wvView.setWebViewClient(new WebViewClient());
         wvView.setWebChromeClient(new WebChromeClient());
@@ -81,5 +81,9 @@ public class InquiryFragment extends Fragment {
 
         return viewGroup;
 
+    }
+
+    public void initView(ViewGroup viewGroup) {
+        wvView = viewGroup.findViewById(R.id.wvView);
     }
 }
