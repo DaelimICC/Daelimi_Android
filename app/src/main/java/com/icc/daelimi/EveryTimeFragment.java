@@ -66,7 +66,9 @@ public class EveryTimeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_smart_campus, container, false);
-        ivGif = viewGroup.findViewById(R.id.ivGif);
+
+        initView(viewGroup);
+
         Glide.with(this).load(R.raw.gifevery).into(ivGif);
 
 
@@ -80,5 +82,10 @@ public class EveryTimeFragment extends Fragment {
         }
 
         return viewGroup;
+    }
+
+    public void initView(ViewGroup viewGroup)
+    {
+        ivGif = viewGroup.findViewById(R.id.ivGif);
     }
 }

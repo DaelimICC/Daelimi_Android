@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         bottomNavigationView = findViewById(R.id.bnvNavi);
+=======
+        initView();
+>>>>>>> 0280fd1abd8bf6c1aab3823448c32626063df3f1
 
         chatFragment = new ChatFragment();
         smartCampusFragment = new SmartCampusFragment();
@@ -67,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 "예) 전산관 프로그래밍1실 -> J0225");
         builder.setPositiveButton("알겠습니다", null);
         builder.create().show();
+    }
+
+    public void initView() {
+        bottomNavigationView = findViewById(R.id.bnvNavi);
     }
 
 }

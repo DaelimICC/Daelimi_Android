@@ -99,10 +99,7 @@ public class ChatFragment extends Fragment {
 
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_chat, container, false);
 
-        rvChats = viewGroup.findViewById(R.id.rvChats);
-        edtMessage = viewGroup.findViewById(R.id.edtMessage);
-        fabSend = viewGroup.findViewById(R.id.fabSend);
-
+        initView(viewGroup);
 
         messageModalArrayList = new ArrayList<>();
 
@@ -164,6 +161,12 @@ public class ChatFragment extends Fragment {
         messageRVAdapter.notifyDataSetChanged();
         rvChats.smoothScrollToPosition(messageModalArrayList.size());
         fabSend.setClickable(true);
+    }
+
+    public void initView(ViewGroup viewGroup) {
+        rvChats = viewGroup.findViewById(R.id.rvChats);
+        edtMessage = viewGroup.findViewById(R.id.edtMessage);
+        fabSend = viewGroup.findViewById(R.id.fabSend);
     }
 }
 
