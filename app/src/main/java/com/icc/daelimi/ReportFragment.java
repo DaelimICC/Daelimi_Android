@@ -13,10 +13,10 @@ import android.webkit.WebViewClient;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link InquiryFragment#newInstance} factory method to
+ * Use the {@link ReportFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class InquiryFragment extends Fragment {
+public class ReportFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,7 +26,7 @@ public class InquiryFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public InquiryFragment() {
+    public ReportFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class InquiryFragment extends Fragment {
      * @return A new instance of fragment InquiryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static InquiryFragment newInstance(String param1, String param2) {
-        InquiryFragment fragment = new InquiryFragment();
+    public static ReportFragment newInstance(String param1, String param2) {
+        ReportFragment fragment = new ReportFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,7 +63,7 @@ public class InquiryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_inquiry, container, false);
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_report, container, false);
 
         wvView = viewGroup.findViewById(R.id.wvView);
 

@@ -4,11 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Switch;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -18,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     ChatFragment chatFragment;
     SmartCampusFragment smartCampusFragment;
     EveryTimeFragment everyTimeFragment;
-    InquiryFragment inquiryFragment;
+    ReportFragment reportFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bnvNavi);
+
         chatFragment = new ChatFragment();
         smartCampusFragment = new SmartCampusFragment();
         everyTimeFragment = new EveryTimeFragment();
-        inquiryFragment = new InquiryFragment();
+        reportFragment = new ReportFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flyFrame, chatFragment).commit();
 
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.menuInquiry:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.flyFrame, inquiryFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.flyFrame, reportFragment).commit();
                         return true;
                 }
 

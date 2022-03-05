@@ -81,16 +81,16 @@ public class ChatFragment extends Fragment {
     MessageRVAdapter messageRVAdapter;
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://141.164.61.172:8000/")
+            .baseUrl("https://api-daelimi.soplay.dev/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
     RetrofitService service = retrofit.create(RetrofitService.class);
     Call<ResponseAnswer> call;
 
-    Filter filter;
+    Filter filter; //필터값을 입력한 Request 객체 생성
 
-
+    //챗봇 Modal, adapter를 구현 하고 통신 처리
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -119,7 +119,7 @@ public class ChatFragment extends Fragment {
             public void onClick(View v) {
                 String userMessage = edtMessage.getText().toString();
                 if (userMessage.isEmpty()) {
-                    Toast.makeText(getContext(), "질문을 입력하세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "질문을 입력하세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -134,6 +134,7 @@ public class ChatFragment extends Fragment {
         return viewGroup;
     }
 
+    //사용자 메세지를 서버에 전송
     private void sendMessage(String userMessage) {
         messageModalArrayList.add(new MessageModal(userMessage, USER_KEY));
         messageRVAdapter.notifyDataSetChanged();
@@ -157,6 +158,7 @@ public class ChatFragment extends Fragment {
         });
     }
 
+    //서버에서 전달받은 메세지를 출력
     private void setBotMessage(String botMessage){
         messageModalArrayList.add(new MessageModal(botMessage, BOT_KEY));
         messageRVAdapter.notifyDataSetChanged();

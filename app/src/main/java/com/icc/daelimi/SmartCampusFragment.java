@@ -61,6 +61,7 @@ public class SmartCampusFragment extends Fragment {
 
     ImageView ivGif;
 
+    //앱이 설치 되어있으면 앱으로 이동하고 없으면 마켓으로 이동
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

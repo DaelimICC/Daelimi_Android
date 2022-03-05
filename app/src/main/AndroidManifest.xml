@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Daelimi"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".TitleActivity"
             android:exported="true"
