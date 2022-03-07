@@ -12,9 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ReportFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * 문의 사이트를 연결해주는 프레그먼트이다.
  */
 public class ReportFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -59,12 +57,21 @@ public class ReportFragment extends Fragment {
 
     WebView wvView;
 
+    //웹뷰를 생성하여 설정하고 문의사이트로 연결
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_report, container, false);
 
+        initWebView(viewGroup);
+
+        wvView.loadUrl("https://daelimi.soplay.dev/error_report_mobile");
+
+        return viewGroup;
+    }
+
+    public void initWebView(ViewGroup viewGroup){
         wvView = viewGroup.findViewById(R.id.wvView);
 
         wvView.setWebViewClient(new WebViewClient());
@@ -82,10 +89,5 @@ public class ReportFragment extends Fragment {
 
         //WebView 모바일장치 내부저장소 이용 허용 여부
         wvView.getSettings().setDomStorageEnabled(true);
-
-        wvView.loadUrl("https://daelimi.soplay.dev/error_report_mobile");
-
-        return viewGroup;
-
     }
 }

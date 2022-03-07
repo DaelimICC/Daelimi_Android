@@ -1,5 +1,10 @@
 package com.icc.daelimi;
 
+/**
+ * 초기 로딩을 위한 스플래쉬 화면이다.
+ * 1초간 스플래쉬 화면을 보여주고 메인 액티비티를 보여준다.
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;

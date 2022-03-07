@@ -1,5 +1,12 @@
 package com.icc.daelimi;
 
+/**
+ * 챗봇을 구현한 프레그먼트로 앱 실행시 표시되는 프레그먼트입니다.
+ *
+ * Adapter, Modal, MwssageView는 하단 사이트를 참조하여 구현되었습니다.
+ *  ref. https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,11 +31,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ChatFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ChatFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,6 +78,7 @@ public class ChatFragment extends Fragment {
 
     final String USER_KEY = "user";
     final String BOT_KEY = "bot";
+    String responseMessage;
 
     ArrayList<MessageModal> messageModalArrayList;
     MessageRVAdapter messageRVAdapter;
@@ -88,18 +91,16 @@ public class ChatFragment extends Fragment {
     RetrofitService service = retrofit.create(RetrofitService.class);
     Call<ResponseAnswer> call;
 
-    Filter filter; //필터값을 입력한 Request 객체 생성
+    Filter filter; //사용자 메세지를 판별하여 필터값을 정한 Request 객체 생성
 
     //챗봇 Modal, adapter를 구현 하고 통신 처리
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        filter = new Filter();
-
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_chat, container, false);
 
-        initView(viewGroup);
+        init(viewGroup);
 
         messageModalArrayList = new ArrayList<>();
 
@@ -109,8 +110,9 @@ public class ChatFragment extends Fragment {
         rvChats.setLayoutManager(linearLayoutManager);
         rvChats.setAdapter(messageRVAdapter);
 
-        setBotMessage("안녕하세요! 대림이 입니다.");
+        setBotMessage("안녕하세요! 대림이 입니다."); //챗봇 처음 메세지 출력
 
+        //메세지를 전송하고 답변이 올때 까지 전송 버튼을 비활성화함
         fabSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,15 +141,18 @@ public class ChatFragment extends Fragment {
         call = service.getResponse(filter.sendMessage(userMessage));
 
         call.enqueue(new Callback<ResponseAnswer>() {
+            //통신 성공시 response의 바디에서 메세지를 가져와 출력
             @Override
             public void onResponse(Call<ResponseAnswer> call, Response<ResponseAnswer> response) {
-                if(response.isSuccessful()){
+                //응답코드 2XX만 정상으로 처리
+               if(response.isSuccessful()){
                     ResponseAnswer result = response.body();
-                    String responseMessage = result.toString();
+                    responseMessage = result.toString();
                     setBotMessage(responseMessage);
                 }
             }
 
+            //통신 실패시 에러메세지 출력
             @Override
             public void onFailure(Call<ResponseAnswer> call, Throwable t) {
                 setBotMessage("서버연결에 문제가 생겼습니다.");
@@ -155,7 +160,7 @@ public class ChatFragment extends Fragment {
         });
     }
 
-    //서버에서 전달받은 메세지를 출력
+    //서버에서 응답한 메세지를 봇 메세지로 출력
     private void setBotMessage(String botMessage){
         messageModalArrayList.add(new MessageModal(botMessage, BOT_KEY));
         messageRVAdapter.notifyDataSetChanged();
@@ -163,10 +168,12 @@ public class ChatFragment extends Fragment {
         fabSend.setClickable(true);
     }
 
-    public void initView(ViewGroup viewGroup) {
+    public void init(ViewGroup viewGroup) {
         rvChats = viewGroup.findViewById(R.id.rvChats);
         edtMessage = viewGroup.findViewById(R.id.edtMessage);
         fabSend = viewGroup.findViewById(R.id.fabSend);
+
+        filter = new Filter();
     }
 }
 

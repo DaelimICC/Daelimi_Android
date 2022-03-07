@@ -1,5 +1,10 @@
 package com.icc.daelimi;
 
+/**
+ *  스마트 캠퍼스 앱으로 연결하기 위해 구현한 프레그먼트이다.
+ *  화면 출력은 빈화면을 채우기 위한 gif 파일로 하였다. *
+ */
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,11 +18,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SmartCampusFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SmartCampusFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,6 +60,7 @@ public class SmartCampusFragment extends Fragment {
     }
 
     ImageView ivGif;
+    Intent intent;
 
     //앱이 설치 되어있으면 앱으로 이동하고 없으면 마켓으로 이동
     @Override
@@ -72,7 +73,6 @@ public class SmartCampusFragment extends Fragment {
 
         Glide.with(this).load(R.raw.gifsmart).into(ivGif);
 
-        Intent intent;
         try{
             intent = getActivity().getPackageManager().getLaunchIntentForPackage("kr.ac.dlu.atdc");
             startActivity(intent);

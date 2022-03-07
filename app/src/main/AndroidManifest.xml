@@ -4,6 +4,11 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <queries>
+        <package android:name="kr.ac.dlu.atdc" />
+        <package android:name="com.everytime.v2" />
+    </queries>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_daelim"

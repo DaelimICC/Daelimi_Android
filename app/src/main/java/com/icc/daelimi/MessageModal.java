@@ -1,5 +1,11 @@
 package com.icc.daelimi;
 
+/**
+ * 입력된 메세지와 입력자를 저장하는 객체
+ *
+ * ref. https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
+
 public class MessageModal {
     private String message;
     private String sender;
