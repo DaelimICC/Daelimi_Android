@@ -1,5 +1,9 @@
 package com.icc.daelimi;
 
+/**
+ *   메인액티비티는 하단 네비뷰와 프레임 레이아웃으로 각 프레그먼트를 이동함
+ */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,18 +26,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initView();
+        init();
 
-
-        chatFragment = new ChatFragment();
-        smartCampusFragment = new SmartCampusFragment();
-        everyTimeFragment = new EveryTimeFragment();
-        reportFragment = new ReportFragment();
-
+        //앱 시작시 챗봇 화면을 기본으로 보여줌
         getSupportFragmentManager().beginTransaction().replace(R.id.flyFrame, chatFragment).commit();
 
         showAlertDialog();
 
+        //하단 네비뷰에서 선택한 메뉴에 따라 프레임 레이아웃에 표시되는 프레그먼트를 교체
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //앱 시작시 안내 알림 표시
     public void showAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("안내");
@@ -70,8 +71,13 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    public void initView() {
+    public void init() {
         bottomNavigationView = findViewById(R.id.bnvNavi);
+
+        chatFragment = new ChatFragment();
+        smartCampusFragment = new SmartCampusFragment();
+        everyTimeFragment = new EveryTimeFragment();
+        reportFragment = new ReportFragment();
     }
 
 }

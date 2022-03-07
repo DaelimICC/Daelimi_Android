@@ -1,5 +1,11 @@
 package com.icc.daelimi;
 
+/**
+ *  ReclerView에 사용하기 위한 어댑터
+ *
+ *  ref. https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
+ */
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +43,7 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
         return null;
     }
 
+    //modal에 저장된 입력자를 판단하여 알맞은 메세지 박스에 표시
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MessageModal modal = messageModalArrayList.get(position);

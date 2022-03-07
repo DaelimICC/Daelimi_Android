@@ -1,5 +1,10 @@
 package com.icc.daelimi;
 
+/**
+ * 입력 메세지 에서 학교내의 건물이나 시설의 이름, 강의실 코드가 있는지 판단한다.
+ * 판단 결과에 따라 필터값을 정한 Request 객체 생성
+ */
+
 public class Filter {
     private String locationCodeFilter = ".*[ABCDEFGHJKLMNPV]0\\d{3}.*";
     private String locationNameFilter = ".*수암도서관|도서관|WCC홀|한림관|방송실|체육관관람석|" +
@@ -21,6 +26,15 @@ public class Filter {
         this.locationNameFilter = locationNameFilter;
     }
 
+    public String getLocationCodeFilter() {
+        return locationCodeFilter;
+    }
+
+    public String getLocationNameFilter() {
+        return locationNameFilter;
+    }
+
+    //사용자가 장소를 물어보는 건지 판별 후 필터 값을 정하여 서버로 보낼 리퀘스트 생성
     public Request sendMessage(String userMessage){
         if(userMessage.toUpperCase().matches(locationCodeFilter) || userMessage.matches(locationNameFilter)){
             isFilter = 1;
