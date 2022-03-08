@@ -22,7 +22,6 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/iconrobot" />
 
-
         <TextView
             android:id="@+id/tvBot"
             android:layout_width="match_parent"
@@ -31,7 +30,8 @@
             android:layout_marginRight="5dp"
             android:padding="3dp"
             android:text="Bot Message"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:maxWidth="300dp"/>
 
     </LinearLayout>
 

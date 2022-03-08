@@ -113,7 +113,8 @@ public class ChatFragment extends Fragment {
         rvChats.setAdapter(messageRVAdapter);
 
         setBotMessage("안녕하세요! 대림이 입니다.\n" +
-                      "사용중 문제가 있으시면 하단 메뉴 우측의 문의 사이트를 이용해주세요!"); //챗봇 처음 메세지 출력
+                      "사용중 문제가 있으시면 하단 메뉴 우측의 \n"+
+                      "문의 사이트를 이용해주세요!"); //챗봇 처음 메세지 출력
 
         //메세지를 전송하고 답변이 올때 까지 전송 버튼을 비활성화함
         fabSend.setOnClickListener(new View.OnClickListener() {
