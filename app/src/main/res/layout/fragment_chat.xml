@@ -32,9 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_margin="4dp"
-            app:fabCustomSize="45dp"
             android:src="@drawable/push"
-            />
+            app:fabCustomSize="45dp" />
 
     </LinearLayout>
 

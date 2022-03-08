@@ -7,6 +7,8 @@ package com.icc.daelimi;
  *  ref. https://www.geeksforgeeks.org/how-to-create-a-chatbot-in-android-with-brainshop-api/
  */
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -110,7 +112,8 @@ public class ChatFragment extends Fragment {
         rvChats.setLayoutManager(linearLayoutManager);
         rvChats.setAdapter(messageRVAdapter);
 
-        setBotMessage("안녕하세요! 대림이 입니다."); //챗봇 처음 메세지 출력
+        setBotMessage("안녕하세요! 대림이 입니다.\n" +
+                      "사용중 문제가 있으시면 하단 메뉴 우측의 문의 사이트를 이용해주세요!"); //챗봇 처음 메세지 출력
 
         //메세지를 전송하고 답변이 올때 까지 전송 버튼을 비활성화함
         fabSend.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +129,7 @@ public class ChatFragment extends Fragment {
 
                 edtMessage.setText("");
 
-                fabSend.setClickable(false);
+                fabSend.setEnabled(false);
             }
         });
 
@@ -155,7 +158,7 @@ public class ChatFragment extends Fragment {
             //통신 실패시 에러메세지 출력
             @Override
             public void onFailure(Call<ResponseAnswer> call, Throwable t) {
-                setBotMessage("서버연결에 문제가 생겼습니다.");
+                setBotMessage("시간 초과");
             }
         });
     }
@@ -165,7 +168,8 @@ public class ChatFragment extends Fragment {
         messageModalArrayList.add(new MessageModal(botMessage, BOT_KEY));
         messageRVAdapter.notifyDataSetChanged();
         rvChats.smoothScrollToPosition(messageModalArrayList.size());
-        fabSend.setClickable(true);
+
+        fabSend.setEnabled(true);
     }
 
     public void init(ViewGroup viewGroup) {
