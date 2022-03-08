@@ -142,6 +142,8 @@ public class ChatFragment extends Fragment {
         messageModalArrayList.add(new MessageModal(userMessage, USER_KEY));
         messageRVAdapter.notifyDataSetChanged();
 
+        rvChats.smoothScrollToPosition(messageModalArrayList.size());
+
         call = service.getResponse(filter.sendMessage(userMessage));
 
         call.enqueue(new Callback<ResponseAnswer>() {
@@ -159,7 +161,7 @@ public class ChatFragment extends Fragment {
             //통신 실패시 에러메세지 출력
             @Override
             public void onFailure(Call<ResponseAnswer> call, Throwable t) {
-                setBotMessage("시간 초과");
+                setBotMessage("대림이 서버와 연결에 문제가 생겼습니다.");
             }
         });
     }
